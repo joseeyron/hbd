@@ -1,0 +1,209 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  body {
+    background-color: #ffb6c1; /* Light pink background */
+  }
+  
+  .card {
+    width: 640px;
+    height: 400px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-perspective: 1200px;
+    perspective: 1200px;
+    transition: 1s;
+  }
+  
+  .card:hover {
+    transform: rotate(-5deg);
+  }
+  
+  .card:hover .outside {
+    transform: rotateY(-130deg);
+  }
+  
+  .outside,
+  .inside {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    left: 50.1%;
+  }
+  
+  .inside {
+    background: linear-gradient(to right, #ffe4e1, #fff0f5 30%);
+    line-height: 3;
+    padding: 0 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    left: 50%;
+  }
+  
+  .outside {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    z-index: 1;
+    transform-origin: left;
+    transition: 2s;
+    cursor: pointer;
+  }
+  
+  .front,
+  .back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+  }
+  
+  .front {
+    background-color: #fff0f5;
+  }
+  
+  .back {
+    transform: rotateY(180deg);
+    background: linear-gradient(to left, #ffe4e1, #fff0f5 30%);
+  }
+  
+  .cake {
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
+  }
+  
+  .top-layer,
+  .middle-layer,
+  .bottom-layer {
+    height: 80px;
+    width: 240px;
+    background-repeat: repeat;
+    background-size: 60px 100px;
+    background-position: 28px 0;
+    background-image: linear-gradient(
+        transparent 50px,
+        #ffe4e1 50px,
+        #ffe4e1 60px,
+        transparent 60px
+      ),
+      radial-gradient(circle at 30px 5px, #ff69b4 30px, #ffb6c1 31px);
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    margin: auto;
+  }
+  
+  .middle-layer {
+    transform: scale(0.85);
+    top: 6px;
+  }
+  
+  .top-layer {
+    transform: scale(0.7);
+    top: 26px;
+  }
+  
+  .candle {
+    height: 45px;
+    width: 15px;
+    background: repeating-linear-gradient(
+      45deg,
+      #ff69b4 0,
+      #ff69b4 5px,
+      #ffb6c1 5px,
+      #ffb6c1 10px
+    );
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 202px;
+  }
+  
+  .candle:before {
+    content: "";
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    background-color: #ffa07a;
+    border-radius: 0 50% 50% 50%;
+    bottom: 48px;
+    transform: rotate(45deg);
+    left: -1px;
+  }
+  
+  .outside p {
+    font-size: 23px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: 6px;
+    color: #ff69b4;
+  }
+  
+  .inside h1 {
+    font-size: 120px;
+    line-height: 120px;
+    color: #ff69b4;
+  }
+  
+  /* Scrapbook-style images */
+  .scrap-images {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ensures the images don't interfere with hover actions */
+  }
+  
+  /* Updated image size and spacing */
+  .scrap-images img {
+    position: absolute;
+    width: 150px; /* Size */
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease;
+  }
+  
+  /* Repositioned images completely outside the card */
+  .scrap-image1 {
+    top: 30px;
+    left: 90px; /* Moved farther to the left */
+    transform: rotate(-10deg);
+  }
+  
+  .scrap-image2 {
+    top: 30px;
+    right: -190px; /* Moved farther to the right */
+    transform: rotate(15deg);
+  }
+  
+  .scrap-image3 {
+    bottom: 30px;
+    left: 90px; /* Moved farther to the left */
+    transform: rotate(8deg);
+  }
+  
+  .scrap-image4 {
+    bottom: 30px;
+    right: -190px; /* Moved farther to the right */
+    transform: rotate(-15deg);
+  }
+  
+  /* Hover effects for subtle movement */
+  .card:hover .scrap-images img {
+    transform: scale(1.05) rotate(0deg);
+  }
+  
